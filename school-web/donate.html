@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Donate - Irsalia Orphan School</title>
+</head>
+<body>
+    <header class="logo">
+        <img src="image11.png" alt="logo imag" width="90px" height="80px">
+        <h2>Irsalia orphan school</h2>
+        <nav class="navbar">
+            <div class="search-container">
+                <button class="search-toggle">🔍</button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button class="search-submit">Search</button>
+                </div>
+            </div>
+            <div class="menu-toggle">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li class="donate"><a href="donate.html" class="active">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="donate-hero">
+            <div class="hero-content">
+                <h1>Support Our Mission</h1>
+                <p class="hero-text" style="color: #f9f4f4;">Your generosity can transform a child's future through education</p>
+            </div>
+        </section>
+
+        <section class="donate-section">
+            <div class="donation-types">
+                <h2>Ways to Give</h2>
+                <div class="donation-options-grid">
+                    <div class="donation-option-card">
+                        <div class="option-icon">💰</div>
+                        <h3>One-Time Donation</h3>
+                        <p>Make an immediate impact with a single contribution</p>
+                        <button class="btn" onclick="showDonationForm('one-time')">Donate Now</button>
+                    </div>
+                    <div class="donation-option-card">
+                        <div class="option-icon">🔄</div>
+                        <h3>Monthly Giving</h3>
+                        <p>Support our mission with recurring monthly donations</p>
+                        <button class="btn" onclick="showDonationForm('monthly')">Become a Monthly Donor</button>
+                    </div>
+                    <div class="donation-option-card">
+                        <div class="option-icon">📚</div>
+                        <h3>Sponsor a Child</h3>
+                        <p>Support a specific child's education and development</p>
+                        <button class="btn" onclick="showDonationForm('sponsor')">Sponsor Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-section">
+                <h2>Your Impact</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <span class="impact-amount">$25</span>
+                        <p>Provides school supplies for one child</p>
+                    </div>
+                    <div class="impact-card">
+                        <span class="impact-amount">$50</span>
+                        <p>Covers one month of meals for a student</p>
+                    </div>
+                    <div class="impact-card">
+                        <span class="impact-amount">$100</span>
+                        <p>Sponsors one month of education</p>
+                    </div>
+                    <div class="impact-card">
+                        <span class="impact-amount">$500</span>
+                        <p>Provides a full year of supplies and uniforms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="donation-form-container" class="donation-form-section">
+                <h2>Make Your Donation</h2>
+                <div class="donation-form">
+                    <div class="form-tabs">
+                        <button class="tab-btn active" data-tab="one-time">One-Time</button>
+                        <button class="tab-btn" data-tab="monthly">Monthly</button>
+                        <button class="tab-btn" data-tab="sponsor">Sponsor</button>
+                    </div>
+
+                    <form id="donateForm">
+                        <div class="form-group">
+                            <label for="donationType">Donation Type</label>
+                            <select id="donationType" name="donationType" required>
+                                <option value="general">General Fund</option>
+                                <option value="education">Education Program</option>
+                                <option value="meals">Meal Program</option>
+                                <option value="infrastructure">Infrastructure</option>
+                            </select>
+                        </div>
+
+                        <div class="amount-options">
+                            <h3>Select Amount</h3>
+                            <div class="amount-buttons">
+                                <button type="button" class="amount-btn" data-amount="25">$25</button>
+                                <button type="button" class="amount-btn" data-amount="50">$50</button>
+                                <button type="button" class="amount-btn" data-amount="100">$100</button>
+                                <button type="button" class="amount-btn" data-amount="200">$200</button>
+                                <button type="button" class="amount-btn custom">Custom</button>
+                            </div>
+                            <div class="custom-amount" style="display: none;">
+                                <input type="number" id="customDonation" name="customDonation" placeholder="Enter amount" min="1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorName">Full Name</label>
+                            <input type="text" id="donorName" name="donorName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorEmail">Email</label>
+                            <input type="email" id="donorEmail" name="donorEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorPhone">Phone (Optional)</label>
+                            <input type="tel" id="donorPhone" name="donorPhone">
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="anonymous" id="anonymous">
+                                Make this donation anonymous
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="newsletter" id="newsletter" checked>
+                                Sign up for our newsletter
+                            </label>
+                        </div>
+
+                        <div class="payment-options">
+                            <h3>Payment Method</h3>
+                            <div class="payment-buttons">
+                                <button type="button" class="payment-btn active" data-method="card">
+                                    <span class="payment-icon">💳</span>
+                                    Credit Card
+                                </button>
+                                <button type="button" class="payment-btn" data-method="paypal">
+                                    <span class="payment-icon">🅿️</span>
+                                    PayPal
+                                </button>
+                                <button type="button" class="payment-btn" data-method="bank">
+                                    <span class="payment-icon">🏦</span>
+                                    Bank Transfer
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-large">Complete Donation</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="other-ways-section">
+                <h2>Other Ways to Support</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">📦</div>
+                        <h3>In-Kind Donations</h3>
+                        <p>Donate supplies, books, or equipment</p>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="support-card">
+                        <div class="support-icon">🤝</div>
+                        <h3>Volunteer</h3>
+                        <p>Share your time and skills</p>
+                        <a href="#" class="btn btn-secondary">Join Us</a>
+                    </div>
+                    <div class="support-card">
+                        <div class="support-icon">🏢</div>
+                        <h3>Corporate Giving</h3>
+                        <p>Partner with us to make a difference</p>
+                        <a href="#" class="btn btn-secondary">Partner With Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-item">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </div>
+        <div class="footer-item">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">WhatsApp</a></li>
+            </ul>
+            <p class="copyright">Copyright &copy; 2025 Irsalia Orphan School</p>
+        </div>
+        <div class="footer-item">
+            <h3>Contact Us</h3>
+            <p>Address: Nuba Mountains, Sudan</p>
+            <p>Email: Irsaliaorphanschool.@Irsaliaorphan.org</p>
+            <p>Phone: +61402214106</p>
+        </div>
+    </footer>
+
+    <script>
+        // Show/hide custom amount field
+        document.querySelectorAll('.amount-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const customAmountDiv = document.querySelector('.custom-amount');
+                if (this.classList.contains('custom')) {
+                    customAmountDiv.style.display = 'block';
+                } else {
+                    customAmountDiv.style.display = 'none';
+                }
+            });
+        });
+
+        // Handle payment method selection
+        document.querySelectorAll('.payment-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Handle form tabs
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('donateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get selected amount
+            let amount = document.querySelector('.amount-btn.active')?.dataset.amount;
+            if (!amount || amount === 'custom') {
+                amount = document.getElementById('customDonation').value;
+            }
+            
+            // Get payment method
+            const paymentMethod = document.querySelector('.payment-btn.active').dataset.method;
+            
+            alert(`Thank you for your ${amount ? '$' + amount : ''} donation via ${paymentMethod}! We will process your donation and send you a confirmation email.`);
+            this.reset();
+        });
+
+        function showDonationForm(type) {
+            const formSection = document.getElementById('donation-form-container');
+            formSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Activate corresponding tab
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === type);
+            });
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
